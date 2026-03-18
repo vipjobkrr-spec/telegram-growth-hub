@@ -11,6 +11,8 @@ export default function RotatingEarth({ width = 800, height = 600, className = "
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const [tooltip, setTooltip] = useState<{ name: string; x: number; y: number } | null>(null)
+  const cityScreenPositions = useRef<{ name: string; x: number; y: number; r: number }[]>([])
 
   useEffect(() => {
     if (!canvasRef.current) return
