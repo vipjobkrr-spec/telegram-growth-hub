@@ -24,6 +24,7 @@ export const Navbar = () => {
           <a href="#how-it-works" className="hover:text-foreground transition-colors">Как работает</a>
           <a href="#use-cases" className="hover:text-foreground transition-colors">Кейсы</a>
           <a href="#stats" className="hover:text-foreground transition-colors">Статистика</a>
+          <a href="#pricing" className="hover:text-foreground transition-colors">Тарифы</a>
           <a href="https://tgcparser.ru/vc" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">Отзывы</a>
         </div>
 
@@ -63,6 +64,7 @@ export const Navbar = () => {
               <a href="#how-it-works" onClick={() => setMobileOpen(false)} className="text-sm text-muted-foreground hover:text-foreground transition-colors py-1">Как работает</a>
               <a href="#use-cases" onClick={() => setMobileOpen(false)} className="text-sm text-muted-foreground hover:text-foreground transition-colors py-1">Кейсы</a>
               <a href="#stats" onClick={() => setMobileOpen(false)} className="text-sm text-muted-foreground hover:text-foreground transition-colors py-1">Статистика</a>
+              <a href="#pricing" onClick={() => setMobileOpen(false)} className="text-sm text-muted-foreground hover:text-foreground transition-colors py-1">Тарифы</a>
               <a href="https://tgcparser.ru/vc" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors py-1">Отзывы</a>
               <a
                 href="https://tgcparser.ru/info"

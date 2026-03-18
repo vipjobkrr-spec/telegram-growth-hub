@@ -5,6 +5,7 @@ import { HowItWorks } from "@/components/HowItWorks";
 import { UseCases } from "@/components/UseCases";
 import { StatsSection } from "@/components/StatsSection";
 import { TelegramPosts } from "@/components/TelegramPosts";
+import { PricingSection } from "@/components/PricingSection";
 import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
 
@@ -27,6 +28,9 @@ const Index = () => {
           <StatsSection />
         </div>
         <TelegramPosts />
+        <div id="pricing">
+          <PricingSection />
+        </div>
         <CTASection />
       </main>
       <Footer />
