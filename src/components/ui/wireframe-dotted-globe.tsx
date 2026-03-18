@@ -148,6 +148,36 @@ export default function RotatingEarth({ width = 800, height = 600, className = "
             context.fill()
           }
         })
+
+        // City markers
+        const rotation = projection.rotate()
+        cities.forEach((city) => {
+          const geoAngle = d3.geoDistance([-rotation[0], -rotation[1]], [city.lng, city.lat])
+          if (geoAngle > Math.PI / 2) return // behind globe
+
+          const projected = projection([city.lng, city.lat])
+          if (!projected) return
+
+          // Pulsing dot
+          context.beginPath()
+          context.arc(projected[0], projected[1], 4 * scaleFactor, 0, 2 * Math.PI)
+          context.fillStyle = "hsl(199, 74%, 60%)"
+          context.globalAlpha = 0.3
+          context.fill()
+          context.globalAlpha = 1
+
+          context.beginPath()
+          context.arc(projected[0], projected[1], 2.5 * scaleFactor, 0, 2 * Math.PI)
+          context.fillStyle = "hsl(199, 74%, 70%)"
+          context.fill()
+
+          // Label
+          context.font = `${Math.round(9 * scaleFactor)}px sans-serif`
+          context.fillStyle = "hsl(199, 50%, 80%)"
+          context.globalAlpha = 0.9
+          context.fillText(city.name, projected[0] + 6 * scaleFactor, projected[1] - 6 * scaleFactor)
+          context.globalAlpha = 1
+        })
       }
     }
 
