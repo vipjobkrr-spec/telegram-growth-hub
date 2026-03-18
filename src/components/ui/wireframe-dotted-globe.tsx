@@ -156,13 +156,16 @@ export default function RotatingEarth({ width = 800, height = 600, className = "
 
         // City markers with pulse
         const rot = projection.rotate()
-        const pulse = (Math.sin(time * 2) + 1) / 2 // 0..1
+        const pulse = (Math.sin(time * 2) + 1) / 2
+        const positions: { name: string; x: number; y: number; r: number }[] = []
         cities.forEach((city, i) => {
           const geoAngle = d3.geoDistance([-rot[0], -rot[1]], [city.lng, city.lat])
           if (geoAngle > Math.PI / 2) return
 
           const projected = projection([city.lng, city.lat])
           if (!projected) return
+
+          positions.push({ name: city.name, x: projected[0], y: projected[1], r: 12 * scaleFactor })
 
           // Outer pulse ring
           const phaseOffset = (Math.sin(time * 2 + i * 0.8) + 1) / 2
@@ -196,6 +199,7 @@ export default function RotatingEarth({ width = 800, height = 600, className = "
           context.fillText(city.name, projected[0] + 6 * scaleFactor, projected[1] - 6 * scaleFactor)
           context.globalAlpha = 1
         })
+        cityScreenPositions.current = positions
       }
     }
 
