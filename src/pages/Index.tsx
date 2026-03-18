@@ -7,6 +7,7 @@ import { StatsSection } from "@/components/StatsSection";
 import { TelegramPosts } from "@/components/TelegramPosts";
 import { PricingSection } from "@/components/PricingSection";
 import { CTASection } from "@/components/CTASection";
+import { FAQSection } from "@/components/FAQSection";
 import { Footer } from "@/components/Footer";
 
 const Index = () => {
