@@ -1,8 +1,39 @@
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Send } from "lucide-react";
 import RotatingEarth from "./ui/wireframe-dotted-globe";
 
 const spring = { type: "spring" as const, stiffness: 300, damping: 30 };
+
+const phrases = ["Telegram-империю", "аудиторию", "контент-стратегию"];
+
+const useTypewriter = (words: string[], typingSpeed = 80, deletingSpeed = 50, pause = 2000) => {
+  const [index, setIndex] = useState(0);
+  const [text, setText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const current = words[index];
+    const timeout = setTimeout(() => {
+      if (!isDeleting) {
+        setText(current.slice(0, text.length + 1));
+        if (text.length + 1 === current.length) {
+          setTimeout(() => setIsDeleting(true), pause);
+        }
+      } else {
+        setText(current.slice(0, text.length - 1));
+        if (text.length === 0) {
+          setIsDeleting(false);
+          setIndex((i) => (i + 1) % words.length);
+        }
+      }
+    }, isDeleting ? deletingSpeed : typingSpeed);
+
+    return () => clearTimeout(timeout);
+  }, [text, isDeleting, index, words, typingSpeed, deletingSpeed, pause]);
+
+  return text;
+};
 
 export const HeroSection = () => {
   return (
