@@ -325,6 +325,18 @@ export default function RotatingEarth({ width = 800, height = 600, className = "
         </div>
       )}
       <canvas ref={canvasRef} className="cursor-grab active:cursor-grabbing" />
+      {tooltip && (
+        <div
+          className="absolute pointer-events-none z-10 rounded-lg border border-border bg-card px-3 py-2 shadow-lg"
+          style={{
+            left: tooltip.x,
+            top: tooltip.y - 40,
+            transform: "translateX(-50%)",
+          }}
+        >
+          <span className="text-xs font-medium text-card-foreground">{tooltip.name}</span>
+        </div>
+      )}
     </div>
   )
 }
