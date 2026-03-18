@@ -48,12 +48,14 @@ export const UseCases = () => {
         </motion.div>
 
         <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
-          {cases.map((c, i) => (
+          {cases.map((c, i) => {
+            const gradients = ['card-tg-blue', 'card-tg-teal', 'card-tg-purple', 'card-tg'];
+            return (
             <motion.div
               key={c.title}
               {...fadeIn}
               transition={{ duration: 0.4, delay: i * 0.1 }}
-              className="group relative rounded-lg border border-border bg-card p-6 sm:p-8 transition-colors hover:border-muted-foreground overflow-hidden"
+              className={`group relative rounded-lg border border-border/60 ${gradients[i % gradients.length]} card-tg-hover p-6 sm:p-8 overflow-hidden`}
             >
               <div className="absolute top-0 right-0 w-32 h-32 rounded-full bg-primary/5 blur-2xl" />
               <div className="relative z-10">
