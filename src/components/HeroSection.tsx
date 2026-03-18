@@ -1,10 +1,43 @@
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Send } from "lucide-react";
 import RotatingEarth from "./ui/wireframe-dotted-globe";
 
 const spring = { type: "spring" as const, stiffness: 300, damping: 30 };
 
+const phrases = ["Telegram-империю", "аудиторию", "контент-стратегию"];
+
+const useTypewriter = (words: string[], typingSpeed = 80, deletingSpeed = 50, pause = 2000) => {
+  const [index, setIndex] = useState(0);
+  const [text, setText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const current = words[index];
+    const timeout = setTimeout(() => {
+      if (!isDeleting) {
+        setText(current.slice(0, text.length + 1));
+        if (text.length + 1 === current.length) {
+          setTimeout(() => setIsDeleting(true), pause);
+        }
+      } else {
+        setText(current.slice(0, text.length - 1));
+        if (text.length === 0) {
+          setIsDeleting(false);
+          setIndex((i) => (i + 1) % words.length);
+        }
+      }
+    }, isDeleting ? deletingSpeed : typingSpeed);
+
+    return () => clearTimeout(timeout);
+  }, [text, isDeleting, index, words, typingSpeed, deletingSpeed, pause]);
+
+  return text;
+};
+
 export const HeroSection = () => {
+  const typedText = useTypewriter(phrases);
+
   return (
     <section className="relative min-h-[calc(100vh-3.5rem)] sm:min-h-screen flex items-center overflow-hidden">
       {/* Subtle grid bg */}
@@ -34,7 +67,10 @@ export const HeroSection = () => {
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tighter leading-[0.95] mb-4 sm:mb-6">
               Масштабируй свою
               <br />
-              <span className="text-gradient-primary">Telegram-империю</span>
+              <span className="text-gradient-primary">
+                {typedText}
+                <span className="inline-block w-[3px] h-[0.85em] bg-primary align-middle ml-0.5 animate-pulse" />
+              </span>
               <br />
               на автопилоте
             </h1>
