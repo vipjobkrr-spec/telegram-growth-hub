@@ -100,10 +100,23 @@ html {
       hsl(var(--card));
   }
   .card-tg-hover {
-    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+    transition: box-shadow 0.35s ease, border-color 0.35s ease, transform 0.35s ease;
   }
   .card-tg-hover:hover {
-    box-shadow: 0 0 30px -8px hsl(var(--primary) / 0.15);
-    border-color: hsl(var(--primary) / 0.25);
+    transform: translateY(-2px);
+    box-shadow: 0 0 40px -10px hsl(var(--primary) / 0.25), inset 0 0 15px -5px hsl(var(--primary) / 0.08);
+    border-color: hsl(var(--primary) / 0.4);
+  }
+  .card-tg-blue.card-tg-hover:hover {
+    box-shadow: 0 0 40px -10px hsl(199 74% 51% / 0.3), inset 0 0 15px -5px hsl(199 74% 51% / 0.1);
+    border-color: hsl(199 74% 51% / 0.4);
+  }
+  .card-tg-purple.card-tg-hover:hover {
+    box-shadow: 0 0 40px -10px hsl(260 60% 55% / 0.3), inset 0 0 15px -5px hsl(260 60% 55% / 0.1);
+    border-color: hsl(260 60% 55% / 0.4);
+  }
+  .card-tg-teal.card-tg-hover:hover {
+    box-shadow: 0 0 40px -10px hsl(170 60% 45% / 0.3), inset 0 0 15px -5px hsl(170 60% 45% / 0.1);
+    border-color: hsl(170 60% 45% / 0.4);
   }
 }
