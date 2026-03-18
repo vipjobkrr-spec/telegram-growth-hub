@@ -12,10 +12,12 @@ import { PricingSection } from "@/components/PricingSection";
 import { FAQSection } from "@/components/FAQSection";
 import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
+import { ParticleField } from "@/components/ParticleField";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="relative min-h-screen bg-background">
+      <ParticleField />
       <Navbar />
       <main className="pt-14 sm:pt-16">
         {/* 1. Hero + кнопка + форма заявки */}
