@@ -69,54 +69,75 @@ html {
     box-shadow: 0 0 20px -8px hsl(var(--primary) / 0.15);
   }
 
+  .card-tg,
+  .card-tg-blue,
+  .card-tg-purple,
+  .card-tg-teal,
+  .card-tg-bright {
+    backdrop-filter: blur(12px) saturate(1.4);
+    -webkit-backdrop-filter: blur(12px) saturate(1.4);
+  }
+
   .card-tg {
     background:
-      radial-gradient(ellipse at top right, hsl(var(--primary) / 0.08) 0%, transparent 60%),
-      radial-gradient(ellipse at bottom left, hsl(var(--secondary) / 0.06) 0%, transparent 60%),
-      hsl(var(--card));
+      radial-gradient(ellipse at top right, hsl(var(--primary) / 0.14) 0%, transparent 55%),
+      radial-gradient(ellipse at bottom left, hsl(var(--secondary) / 0.10) 0%, transparent 55%),
+      hsl(var(--card) / 0.85);
   }
   .card-tg-blue {
     background:
-      radial-gradient(ellipse at top left, hsl(199 74% 51% / 0.10) 0%, transparent 55%),
-      radial-gradient(ellipse at bottom right, hsl(215 90% 53% / 0.07) 0%, transparent 55%),
-      hsl(var(--card));
+      radial-gradient(ellipse at top left, hsl(199 74% 51% / 0.18) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom right, hsl(215 90% 53% / 0.12) 0%, transparent 50%),
+      hsl(var(--card) / 0.85);
   }
   .card-tg-purple {
     background:
-      radial-gradient(ellipse at top right, hsl(260 60% 55% / 0.08) 0%, transparent 55%),
-      radial-gradient(ellipse at bottom left, hsl(var(--primary) / 0.06) 0%, transparent 55%),
-      hsl(var(--card));
+      radial-gradient(ellipse at top right, hsl(260 60% 55% / 0.16) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom left, hsl(var(--primary) / 0.10) 0%, transparent 50%),
+      hsl(var(--card) / 0.85);
   }
   .card-tg-teal {
     background:
-      radial-gradient(ellipse at bottom right, hsl(170 60% 45% / 0.08) 0%, transparent 55%),
-      radial-gradient(ellipse at top left, hsl(var(--primary) / 0.06) 0%, transparent 55%),
-      hsl(var(--card));
+      radial-gradient(ellipse at bottom right, hsl(170 60% 45% / 0.16) 0%, transparent 50%),
+      radial-gradient(ellipse at top left, hsl(var(--primary) / 0.10) 0%, transparent 50%),
+      hsl(var(--card) / 0.85);
   }
   .card-tg-bright {
     background:
-      radial-gradient(ellipse at top right, hsl(var(--primary) / 0.14) 0%, transparent 50%),
-      radial-gradient(ellipse at bottom left, hsl(var(--secondary) / 0.10) 0%, transparent 50%),
-      hsl(var(--card));
+      radial-gradient(ellipse at top right, hsl(var(--primary) / 0.22) 0%, transparent 45%),
+      radial-gradient(ellipse at bottom left, hsl(var(--secondary) / 0.16) 0%, transparent 45%),
+      hsl(var(--card) / 0.85);
   }
   .card-tg-hover {
-    transition: box-shadow 0.35s ease, border-color 0.35s ease, transform 0.35s ease;
+    transition: box-shadow 0.4s cubic-bezier(0.4,0,0.2,1), border-color 0.4s ease, transform 0.4s cubic-bezier(0.4,0,0.2,1), background 0.4s ease;
   }
   .card-tg-hover:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 0 40px -10px hsl(var(--primary) / 0.25), inset 0 0 15px -5px hsl(var(--primary) / 0.08);
-    border-color: hsl(var(--primary) / 0.4);
+    transform: translateY(-3px);
+    box-shadow:
+      0 0 50px -8px hsl(var(--primary) / 0.35),
+      0 0 20px -4px hsl(var(--primary) / 0.15),
+      inset 0 0 20px -6px hsl(var(--primary) / 0.12);
+    border-color: hsl(var(--primary) / 0.5);
   }
   .card-tg-blue.card-tg-hover:hover {
-    box-shadow: 0 0 40px -10px hsl(199 74% 51% / 0.3), inset 0 0 15px -5px hsl(199 74% 51% / 0.1);
-    border-color: hsl(199 74% 51% / 0.4);
+    box-shadow:
+      0 0 50px -8px hsl(199 74% 51% / 0.4),
+      0 0 20px -4px hsl(199 74% 51% / 0.2),
+      inset 0 0 20px -6px hsl(199 74% 51% / 0.14);
+    border-color: hsl(199 74% 51% / 0.55);
   }
   .card-tg-purple.card-tg-hover:hover {
-    box-shadow: 0 0 40px -10px hsl(260 60% 55% / 0.3), inset 0 0 15px -5px hsl(260 60% 55% / 0.1);
-    border-color: hsl(260 60% 55% / 0.4);
+    box-shadow:
+      0 0 50px -8px hsl(260 60% 55% / 0.4),
+      0 0 20px -4px hsl(260 60% 55% / 0.2),
+      inset 0 0 20px -6px hsl(260 60% 55% / 0.14);
+    border-color: hsl(260 60% 55% / 0.55);
   }
   .card-tg-teal.card-tg-hover:hover {
-    box-shadow: 0 0 40px -10px hsl(170 60% 45% / 0.3), inset 0 0 15px -5px hsl(170 60% 45% / 0.1);
-    border-color: hsl(170 60% 45% / 0.4);
+    box-shadow:
+      0 0 50px -8px hsl(170 60% 45% / 0.4),
+      0 0 20px -4px hsl(170 60% 45% / 0.2),
+      inset 0 0 20px -6px hsl(170 60% 45% / 0.14);
+    border-color: hsl(170 60% 45% / 0.55);
   }
 }
