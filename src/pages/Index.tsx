@@ -14,6 +14,7 @@ import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
 import { ParticleField } from "@/components/ParticleField";
 import { ScrollReveal } from "@/components/ScrollReveal";
+import { ScrollToTop } from "@/components/ScrollToTop";
 
 const Index = () => {
   return (
