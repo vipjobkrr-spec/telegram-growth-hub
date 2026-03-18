@@ -104,10 +104,13 @@ export default function RotatingEarth({ width = 800, height = 600, className = "
       { name: "Стамбул", lng: 28.9784, lat: 41.0082 },
     ]
 
+    let time = 0
+
     const render = () => {
       context.clearRect(0, 0, containerWidth, containerHeight)
       const currentScale = projection.scale()
       const scaleFactor = currentScale / radius
+      time += 0.03
 
       // Globe background
       context.beginPath()
@@ -149,23 +152,36 @@ export default function RotatingEarth({ width = 800, height = 600, className = "
           }
         })
 
-        // City markers
-        const rotation = projection.rotate()
-        cities.forEach((city) => {
-          const geoAngle = d3.geoDistance([-rotation[0], -rotation[1]], [city.lng, city.lat])
-          if (geoAngle > Math.PI / 2) return // behind globe
+        // City markers with pulse
+        const rot = projection.rotate()
+        const pulse = (Math.sin(time * 2) + 1) / 2 // 0..1
+        cities.forEach((city, i) => {
+          const geoAngle = d3.geoDistance([-rot[0], -rot[1]], [city.lng, city.lat])
+          if (geoAngle > Math.PI / 2) return
 
           const projected = projection([city.lng, city.lat])
           if (!projected) return
 
-          // Pulsing dot
+          // Outer pulse ring
+          const phaseOffset = (Math.sin(time * 2 + i * 0.8) + 1) / 2
+          const pulseRadius = (6 + phaseOffset * 6) * scaleFactor
+          context.beginPath()
+          context.arc(projected[0], projected[1], pulseRadius, 0, 2 * Math.PI)
+          context.strokeStyle = "hsl(199, 74%, 60%)"
+          context.lineWidth = 1.2 * scaleFactor
+          context.globalAlpha = 0.4 * (1 - phaseOffset)
+          context.stroke()
+          context.globalAlpha = 1
+
+          // Inner glow
           context.beginPath()
           context.arc(projected[0], projected[1], 4 * scaleFactor, 0, 2 * Math.PI)
           context.fillStyle = "hsl(199, 74%, 60%)"
-          context.globalAlpha = 0.3
+          context.globalAlpha = 0.15 + pulse * 0.2
           context.fill()
           context.globalAlpha = 1
 
+          // Core dot
           context.beginPath()
           context.arc(projected[0], projected[1], 2.5 * scaleFactor, 0, 2 * Math.PI)
           context.fillStyle = "hsl(199, 74%, 70%)"
