@@ -28,6 +28,9 @@ const Index = () => {
           <StatsSection />
         </div>
         <TelegramPosts />
+        <div id="pricing">
+          <PricingSection />
+        </div>
         <CTASection />
       </main>
       <Footer />

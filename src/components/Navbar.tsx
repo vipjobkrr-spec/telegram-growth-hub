@@ -24,6 +24,7 @@ export const Navbar = () => {
           <a href="#how-it-works" className="hover:text-foreground transition-colors">Как работает</a>
           <a href="#use-cases" className="hover:text-foreground transition-colors">Кейсы</a>
           <a href="#stats" className="hover:text-foreground transition-colors">Статистика</a>
+          <a href="#pricing" className="hover:text-foreground transition-colors">Тарифы</a>
           <a href="https://tgcparser.ru/vc" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">Отзывы</a>
         </div>
 
