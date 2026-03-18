@@ -43,27 +43,50 @@ export const HeroSection = () => {
               Высокопроизводительный парсер контента для скорости, точности и максимального ROI. Без воды — только данные.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-              <motion.a
-                href="https://tgcparser.ru/info"
-                target="_blank"
-                rel="noopener noreferrer"
-                whileTap={{ scale: 0.98 }}
-                whileHover={{ scale: 1.02 }}
-                className="inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-6 py-3 font-semibold text-primary-foreground transition-colors hover:bg-primary/90 text-sm sm:text-base"
-              >
-                <Send className="h-4 w-4" />
-                Начать парсинг
-              </motion.a>
+            {/* Lead capture form */}
+            <div className="flex flex-col gap-3 mb-6 sm:mb-0">
+              <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
+                <input
+                  type="text"
+                  placeholder="Ваш @username или ссылка на канал"
+                  className="flex-1 rounded-lg border border-border bg-accent px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors"
+                />
+                <motion.a
+                  href="https://tgcparser.ru/info"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileTap={{ scale: 0.98 }}
+                  whileHover={{ scale: 1.02 }}
+                  className="inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-6 py-3 font-semibold text-primary-foreground transition-colors hover:bg-primary/90 text-sm sm:text-base whitespace-nowrap"
+                >
+                  <Send className="h-4 w-4" />
+                  Начать парсинг
+                </motion.a>
+              </div>
+              <p className="text-xs text-muted-foreground">
+                Бесплатный старт — до 5 каналов без ограничений
+              </p>
+            </div>
+
+            <div className="flex items-center gap-4 sm:gap-6">
               <motion.a
                 href="https://t.me/ru_tgcparser"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileTap={{ scale: 0.98 }}
-                className="inline-flex items-center justify-center gap-2 rounded-lg border border-border bg-accent px-6 py-3 font-semibold text-foreground transition-colors hover:border-muted-foreground text-sm sm:text-base"
+                className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
+                <Send className="h-3.5 w-3.5" />
                 Telegram-канал
               </motion.a>
+              <a
+                href="https://tgcparser.ru/vc"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+              >
+                Отзывы на VC.ru
+              </a>
             </div>
           </motion.div>
 
