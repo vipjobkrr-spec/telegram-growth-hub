@@ -14,6 +14,7 @@ interface Particle {
   vy: number;
 }
 
+const LINK_DISTANCE = 100;
 const REPEL_RADIUS = 120;
 const REPEL_FORCE = 8;
 const RETURN_SPEED = 0.04;
