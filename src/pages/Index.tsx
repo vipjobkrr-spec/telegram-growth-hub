@@ -88,6 +88,7 @@ const Index = () => {
         </ScrollReveal>
       </main>
       <Footer />
+      <ScrollToTop />
     </div>
   );
 };
