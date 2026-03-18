@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Send } from "lucide-react";
-import { TerminalWindow } from "./TerminalWindow";
+import RotatingEarth from "./ui/wireframe-dotted-globe";
 
 const spring = { type: "spring" as const, stiffness: 300, damping: 30 };
 
