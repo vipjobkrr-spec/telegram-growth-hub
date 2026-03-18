@@ -93,6 +93,17 @@ export default function RotatingEarth({ width = 800, height = 600, className = "
     const allDots: DotData[] = []
     let landFeatures: any
 
+    const cities: { name: string; lng: number; lat: number }[] = [
+      { name: "Москва", lng: 37.6173, lat: 55.7558 },
+      { name: "Нью-Йорк", lng: -74.006, lat: 40.7128 },
+      { name: "Лондон", lng: -0.1276, lat: 51.5074 },
+      { name: "Токио", lng: 139.6917, lat: 35.6895 },
+      { name: "Дубай", lng: 55.2708, lat: 25.2048 },
+      { name: "Сингапур", lng: 103.8198, lat: 1.3521 },
+      { name: "Сан-Паулу", lng: -46.6333, lat: -23.5505 },
+      { name: "Стамбул", lng: 28.9784, lat: 41.0082 },
+    ]
+
     const render = () => {
       context.clearRect(0, 0, containerWidth, containerHeight)
       const currentScale = projection.scale()
