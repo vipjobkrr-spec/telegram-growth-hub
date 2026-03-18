@@ -67,7 +67,10 @@ export const HeroSection = () => {
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tighter leading-[0.95] mb-4 sm:mb-6">
               Масштабируй свою
               <br />
-              <span className="text-gradient-primary">Telegram-империю</span>
+              <span className="text-gradient-primary">
+                {typedText}
+                <span className="inline-block w-[3px] h-[0.85em] bg-primary align-middle ml-0.5 animate-pulse" />
+              </span>
               <br />
               на автопилоте
             </h1>
