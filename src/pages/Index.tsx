@@ -13,6 +13,7 @@ import { FAQSection } from "@/components/FAQSection";
 import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
 import { ParticleField } from "@/components/ParticleField";
+import { ParallaxShapes } from "@/components/ParallaxShapes";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { ScrollToTop } from "@/components/ScrollToTop";
 
@@ -20,6 +21,7 @@ const Index = () => {
   return (
     <div className="relative min-h-screen bg-background">
       <ParticleField />
+      <ParallaxShapes />
       <Navbar />
       <main className="pt-14 sm:pt-16">
         {/* 1. Hero — без параллакса, сразу видна */}
