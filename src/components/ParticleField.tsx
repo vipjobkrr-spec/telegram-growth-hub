@@ -104,6 +104,26 @@ export const ParticleField = () => {
         ctx.fill();
       }
 
+      // Draw connection lines between nearby particles
+      const pts = particles.current;
+      for (let i = 0; i < pts.length; i++) {
+        for (let j = i + 1; j < pts.length; j++) {
+          const dx = pts[i].x - pts[j].x;
+          const dy = pts[i].y - pts[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < LINK_DISTANCE) {
+            const alpha = (1 - dist / LINK_DISTANCE) * 0.15;
+            ctx.strokeStyle = `rgba(33, 175, 224, ${alpha})`;
+            ctx.lineWidth = 0.5;
+            ctx.beginPath();
+            ctx.moveTo(pts[i].x, pts[j].y);
+            ctx.moveTo(pts[i].x, pts[i].y);
+            ctx.lineTo(pts[j].x, pts[j].y);
+            ctx.stroke();
+          }
+        }
+      }
+
       animRef.current = requestAnimationFrame(draw);
     };
 
