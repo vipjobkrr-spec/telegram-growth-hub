@@ -93,6 +93,17 @@ export default function RotatingEarth({ width = 800, height = 600, className = "
     const allDots: DotData[] = []
     let landFeatures: any
 
+    const cities: { name: string; lng: number; lat: number }[] = [
+      { name: "Москва", lng: 37.6173, lat: 55.7558 },
+      { name: "Нью-Йорк", lng: -74.006, lat: 40.7128 },
+      { name: "Лондон", lng: -0.1276, lat: 51.5074 },
+      { name: "Токио", lng: 139.6917, lat: 35.6895 },
+      { name: "Дубай", lng: 55.2708, lat: 25.2048 },
+      { name: "Сингапур", lng: 103.8198, lat: 1.3521 },
+      { name: "Сан-Паулу", lng: -46.6333, lat: -23.5505 },
+      { name: "Стамбул", lng: 28.9784, lat: 41.0082 },
+    ]
+
     const render = () => {
       context.clearRect(0, 0, containerWidth, containerHeight)
       const currentScale = projection.scale()
@@ -136,6 +147,36 @@ export default function RotatingEarth({ width = 800, height = 600, className = "
             context.fillStyle = "hsl(199, 74%, 60%)"
             context.fill()
           }
+        })
+
+        // City markers
+        const rotation = projection.rotate()
+        cities.forEach((city) => {
+          const geoAngle = d3.geoDistance([-rotation[0], -rotation[1]], [city.lng, city.lat])
+          if (geoAngle > Math.PI / 2) return // behind globe
+
+          const projected = projection([city.lng, city.lat])
+          if (!projected) return
+
+          // Pulsing dot
+          context.beginPath()
+          context.arc(projected[0], projected[1], 4 * scaleFactor, 0, 2 * Math.PI)
+          context.fillStyle = "hsl(199, 74%, 60%)"
+          context.globalAlpha = 0.3
+          context.fill()
+          context.globalAlpha = 1
+
+          context.beginPath()
+          context.arc(projected[0], projected[1], 2.5 * scaleFactor, 0, 2 * Math.PI)
+          context.fillStyle = "hsl(199, 74%, 70%)"
+          context.fill()
+
+          // Label
+          context.font = `${Math.round(9 * scaleFactor)}px sans-serif`
+          context.fillStyle = "hsl(199, 50%, 80%)"
+          context.globalAlpha = 0.9
+          context.fillText(city.name, projected[0] + 6 * scaleFactor, projected[1] - 6 * scaleFactor)
+          context.globalAlpha = 1
         })
       }
     }
