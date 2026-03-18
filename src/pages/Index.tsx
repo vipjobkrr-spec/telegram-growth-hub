@@ -1,7 +1,10 @@
 import { Navbar } from "@/components/Navbar";
 import { HeroSection } from "@/components/HeroSection";
 import { FeaturesGrid } from "@/components/FeaturesGrid";
+import { HowItWorks } from "@/components/HowItWorks";
+import { UseCases } from "@/components/UseCases";
 import { StatsSection } from "@/components/StatsSection";
+import { TelegramPosts } from "@/components/TelegramPosts";
 import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
 
@@ -14,9 +17,16 @@ const Index = () => {
         <div id="features">
           <FeaturesGrid />
         </div>
+        <div id="how-it-works">
+          <HowItWorks />
+        </div>
+        <div id="use-cases">
+          <UseCases />
+        </div>
         <div id="stats">
           <StatsSection />
         </div>
+        <TelegramPosts />
         <CTASection />
       </main>
       <Footer />
