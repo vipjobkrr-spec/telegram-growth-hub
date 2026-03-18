@@ -90,14 +90,14 @@ export const HeroSection = () => {
             </div>
           </motion.div>
 
-          {/* Right — Terminal */}
+          {/* Right — Globe */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ ...spring, delay: 0.3 }}
-            className="lg:block"
+            className="hidden lg:flex items-center justify-center"
           >
-            <TerminalWindow />
+            <RotatingEarth width={520} height={520} />
           </motion.div>
         </div>
       </div>
