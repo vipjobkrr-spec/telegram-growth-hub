@@ -49,7 +49,6 @@ export const FeaturesGrid = () => {
             );
           })}
         </div>
-        </div>
       </div>
     </section>
   );
