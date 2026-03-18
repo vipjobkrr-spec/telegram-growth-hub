@@ -68,7 +68,8 @@ export const UseCases = () => {
                 </div>
               </div>
             </motion.div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

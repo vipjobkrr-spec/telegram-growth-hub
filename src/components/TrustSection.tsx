@@ -52,7 +52,7 @@ export const TrustSection = () => {
               key={review.name}
               {...fadeIn}
               transition={{ duration: 0.4, delay: i * 0.1 }}
-              className="rounded-lg border border-border bg-card p-5 sm:p-6"
+              className={`rounded-lg border border-border/60 ${['card-tg', 'card-tg-blue', 'card-tg-purple'][i]} card-tg-hover p-5 sm:p-6`}
             >
               <div className="flex gap-0.5 mb-3">
                 {Array.from({ length: review.rating }).map((_, j) => (

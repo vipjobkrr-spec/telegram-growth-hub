@@ -68,7 +68,7 @@ export const TelegramPosts = () => {
               {...fadeIn}
               transition={{ duration: 0.4, delay: i * 0.08 }}
               whileHover={{ y: -2 }}
-              className="group block rounded-lg border border-border bg-card p-5 sm:p-6 transition-colors hover:border-primary/40"
+              className={`group block rounded-lg border border-border/60 ${['card-tg', 'card-tg-blue', 'card-tg-teal', 'card-tg-purple'][i]} card-tg-hover p-5 sm:p-6`}
             >
               <div className="flex items-center justify-between mb-3">
                 <span className="text-xs text-muted-foreground font-mono">{post.date}</span>

@@ -10,7 +10,7 @@ export const CTASection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="relative rounded-lg border border-border bg-card p-8 sm:p-12 md:p-16 overflow-hidden"
+          className="relative rounded-lg border border-border/60 card-tg-bright p-8 sm:p-12 md:p-16 overflow-hidden"
         >
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 sm:w-96 h-64 sm:h-96 rounded-full bg-primary/5 blur-3xl" />
 

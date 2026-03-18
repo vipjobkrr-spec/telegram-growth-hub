@@ -57,7 +57,7 @@ export const AboutSection = () => {
                   key={f.label}
                   {...fadeIn}
                   transition={{ duration: 0.4, delay: 0.2 + i * 0.08 }}
-                  className="rounded-lg border border-border bg-card p-5 sm:p-6 text-center"
+                  className={`rounded-lg border border-border/60 ${['card-tg-blue', 'card-tg-teal', 'card-tg-purple', 'card-tg'][i]} card-tg-hover p-5 sm:p-6 text-center`}
                 >
                   <f.icon className="h-5 w-5 text-primary mx-auto mb-3" />
                   <div className="text-xl sm:text-2xl font-bold text-foreground mb-1">{f.value}</div>
