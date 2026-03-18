@@ -89,10 +89,10 @@ export const PricingSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.1 }}
-                className={`relative rounded-lg border p-6 sm:p-8 flex flex-col ${
+                className={`relative rounded-lg border p-6 sm:p-8 flex flex-col card-tg-hover ${
                   plan.popular
-                    ? "border-primary bg-card shadow-lg shadow-primary/5 scale-[1.02]"
-                    : "border-border bg-card"
+                    ? "border-primary/40 card-tg-bright shadow-lg shadow-primary/5 scale-[1.02]"
+                    : "border-border/60 card-tg"
                 }`}
               >
                 {plan.popular && (

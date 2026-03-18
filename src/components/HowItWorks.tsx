@@ -106,7 +106,7 @@ export const HowItWorks = () => {
                     />
                   </div>
                 ) : (
-                  <div className="rounded-lg border border-border bg-card p-8 sm:p-12 flex flex-col items-center justify-center text-center min-h-[280px] glow-primary">
+                  <div className="rounded-lg border border-border/60 card-tg-blue card-tg-hover p-8 sm:p-12 flex flex-col items-center justify-center text-center min-h-[280px] glow-primary">
                     <motion.div
                       animate={{ scale: [1, 1.1, 1] }}
                       transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}

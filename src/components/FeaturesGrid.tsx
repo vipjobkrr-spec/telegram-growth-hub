@@ -33,18 +33,21 @@ export const FeaturesGrid = () => {
         </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
-          {features.map((feature, i) => (
+          {features.map((feature, i) => {
+            const gradients = ['card-tg', 'card-tg-blue', 'card-tg-purple', 'card-tg-teal', 'card-tg', 'card-tg-blue', 'card-tg-purple', 'card-tg-teal', 'card-tg'];
+            return (
             <motion.div
               key={feature.title}
               {...fadeIn}
               transition={{ duration: 0.4, delay: i * 0.05 }}
-              className="group rounded-lg border border-border bg-card p-4 sm:p-6 transition-colors hover:border-muted-foreground"
+              className={`group rounded-lg border border-border/60 ${gradients[i % gradients.length]} card-tg-hover p-4 sm:p-6`}
             >
               <feature.icon className="h-5 w-5 text-primary mb-3 sm:mb-4" />
               <h3 className="font-semibold text-foreground mb-1.5 sm:mb-2 text-sm sm:text-base">{feature.title}</h3>
               <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">{feature.description}</p>
             </motion.div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

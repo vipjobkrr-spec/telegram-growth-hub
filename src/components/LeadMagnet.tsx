@@ -14,7 +14,7 @@ export const LeadMagnet = () => {
         <motion.div
           {...fadeIn}
           transition={{ duration: 0.5 }}
-          className="relative rounded-lg border border-primary/20 bg-card p-8 sm:p-12 md:p-16 overflow-hidden"
+          className="relative rounded-lg border border-primary/20 card-tg-bright p-8 sm:p-12 md:p-16 overflow-hidden"
         >
           <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-primary/5 blur-3xl" />
           <div className="absolute bottom-0 left-0 w-48 h-48 rounded-full bg-secondary/5 blur-3xl" />
