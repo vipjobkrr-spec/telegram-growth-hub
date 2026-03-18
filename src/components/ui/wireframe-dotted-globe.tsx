@@ -272,14 +272,40 @@ export default function RotatingEarth({ width = 800, height = 600, className = "
       render()
     }
 
+    const handleClick = (event: MouseEvent) => {
+      const rect = canvas.getBoundingClientRect()
+      const mx = event.clientX - rect.left
+      const my = event.clientY - rect.top
+      const hit = cityScreenPositions.current.find(c => {
+        const dx = mx - c.x, dy = my - c.y
+        return Math.sqrt(dx * dx + dy * dy) < c.r
+      })
+      setTooltip(hit ? { name: hit.name, x: hit.x, y: hit.y } : null)
+    }
+
+    const handleMouseMove2 = (event: MouseEvent) => {
+      const rect = canvas.getBoundingClientRect()
+      const mx = event.clientX - rect.left
+      const my = event.clientY - rect.top
+      const hit = cityScreenPositions.current.find(c => {
+        const dx = mx - c.x, dy = my - c.y
+        return Math.sqrt(dx * dx + dy * dy) < c.r
+      })
+      canvas.style.cursor = hit ? "pointer" : "grab"
+    }
+
     canvas.addEventListener("mousedown", handleMouseDown)
     canvas.addEventListener("wheel", handleWheel, { passive: false })
+    canvas.addEventListener("click", handleClick)
+    canvas.addEventListener("mousemove", handleMouseMove2)
     loadWorldData()
 
     return () => {
       rotationTimer.stop()
       canvas.removeEventListener("mousedown", handleMouseDown)
       canvas.removeEventListener("wheel", handleWheel)
+      canvas.removeEventListener("click", handleClick)
+      canvas.removeEventListener("mousemove", handleMouseMove2)
     }
   }, [width, height])
 
