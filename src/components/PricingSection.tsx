@@ -89,7 +89,8 @@ export const PricingSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.1 }}
-                className={`relative rounded-lg border p-6 sm:p-8 flex flex-col card-tg-hover ${
+                whileHover={{ scale: plan.popular ? 1.05 : 1.03 }}
+                className={`group relative rounded-lg border p-6 sm:p-8 flex flex-col card-tg-hover cursor-default ${
                   plan.popular
                     ? "border-primary/40 card-tg-bright shadow-lg shadow-primary/5 scale-[1.02]"
                     : "border-border/60 card-tg"
@@ -98,17 +99,17 @@ export const PricingSection = () => {
                 {plan.popular && (
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2">
                     <span className="inline-flex items-center gap-1 rounded-full bg-primary px-3 py-1 text-xs font-semibold text-primary-foreground">
-                      <Star className="h-3 w-3" />
+                      <Star className="h-3 w-3 transition-transform duration-300 group-hover:rotate-45" />
                       Популярный
                     </span>
                   </div>
                 )}
 
                 <div className="mb-6">
-                  <div className="inline-flex items-center justify-center h-10 w-10 rounded-md bg-primary/10 mb-4">
-                    <Icon className="h-5 w-5 text-primary" />
+                  <div className="inline-flex items-center justify-center h-10 w-10 rounded-md bg-primary/10 mb-4 transition-all duration-300 group-hover:bg-primary/20 group-hover:scale-110">
+                    <Icon className="h-5 w-5 text-primary transition-transform duration-300 group-hover:rotate-6" />
                   </div>
-                  <h3 className="text-lg font-bold text-foreground mb-1">{plan.name}</h3>
+                  <h3 className="text-lg font-bold text-foreground mb-1 transition-colors duration-300 group-hover:text-primary">{plan.name}</h3>
                   <p className="text-xs text-muted-foreground">{plan.description}</p>
                 </div>
 

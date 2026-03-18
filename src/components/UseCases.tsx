@@ -55,14 +55,17 @@ export const UseCases = () => {
               key={c.title}
               {...fadeIn}
               transition={{ duration: 0.4, delay: i * 0.1 }}
-              className={`group relative rounded-lg border border-border/60 ${gradients[i % gradients.length]} card-tg-hover p-6 sm:p-8 overflow-hidden`}
+              whileHover={{ scale: 1.03 }}
+              className={`group relative rounded-lg border border-border/60 ${gradients[i % gradients.length]} card-tg-hover p-6 sm:p-8 overflow-hidden cursor-default`}
             >
-              <div className="absolute top-0 right-0 w-32 h-32 rounded-full bg-primary/5 blur-2xl" />
+              <div className="absolute top-0 right-0 w-32 h-32 rounded-full bg-primary/5 blur-2xl transition-all duration-500 group-hover:w-48 group-hover:h-48 group-hover:bg-primary/10" />
               <div className="relative z-10">
-                <c.icon className="h-6 w-6 text-primary mb-4" />
-                <h3 className="text-lg sm:text-xl font-bold tracking-tight mb-2">{c.title}</h3>
+                <div className="inline-flex items-center justify-center h-10 w-10 rounded-md bg-primary/10 mb-4 transition-all duration-300 group-hover:bg-primary/20 group-hover:scale-110">
+                  <c.icon className="h-5 w-5 text-primary transition-transform duration-300 group-hover:rotate-6" />
+                </div>
+                <h3 className="text-lg sm:text-xl font-bold tracking-tight mb-2 transition-colors duration-300 group-hover:text-primary">{c.title}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed mb-4">{c.description}</p>
-                <div className="flex items-start gap-2 pt-4 border-t border-border">
+                <div className="flex items-start gap-2 pt-4 border-t border-border/60 transition-colors duration-300 group-hover:border-primary/30">
                   <span className="text-primary text-lg leading-none">"</span>
                   <p className="text-xs sm:text-sm text-foreground italic">{c.quote}</p>
                 </div>
