@@ -60,6 +60,8 @@ export const Navbar = () => {
           >
             <div className="container py-4 flex flex-col gap-4">
               <a href="#features" onClick={() => setMobileOpen(false)} className="text-sm text-muted-foreground hover:text-foreground transition-colors py-1">Возможности</a>
+              <a href="#how-it-works" onClick={() => setMobileOpen(false)} className="text-sm text-muted-foreground hover:text-foreground transition-colors py-1">Как работает</a>
+              <a href="#use-cases" onClick={() => setMobileOpen(false)} className="text-sm text-muted-foreground hover:text-foreground transition-colors py-1">Кейсы</a>
               <a href="#stats" onClick={() => setMobileOpen(false)} className="text-sm text-muted-foreground hover:text-foreground transition-colors py-1">Статистика</a>
               <a href="https://tgcparser.ru/vc" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors py-1">Отзывы</a>
               <a
