@@ -13,6 +13,7 @@ import { FAQSection } from "@/components/FAQSection";
 import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
 import { ParticleField } from "@/components/ParticleField";
+import { ScrollReveal } from "@/components/ScrollReveal";
 
 const Index = () => {
   return (
@@ -20,50 +21,71 @@ const Index = () => {
       <ParticleField />
       <Navbar />
       <main className="pt-14 sm:pt-16">
-        {/* 1. Hero + кнопка + форма заявки */}
+        {/* 1. Hero — без параллакса, сразу видна */}
         <HeroSection />
-        {/* 2. Возможности (карточки + описание) */}
-        <div id="features">
-          <FeaturesGrid />
-        </div>
-        {/* 3. Лид-магнит (быстрый расчёт) */}
-        <div id="lead-magnet">
-          <LeadMagnet />
-        </div>
-        {/* 4. Преимущества / Статистика */}
-        <div id="stats">
-          <StatsSection />
-        </div>
+        {/* 2. Возможности */}
+        <ScrollReveal>
+          <div id="features">
+            <FeaturesGrid />
+          </div>
+        </ScrollReveal>
+        {/* 3. Лид-магнит */}
+        <ScrollReveal parallaxOffset={50}>
+          <div id="lead-magnet">
+            <LeadMagnet />
+          </div>
+        </ScrollReveal>
+        {/* 4. Статистика */}
+        <ScrollReveal>
+          <div id="stats">
+            <StatsSection />
+          </div>
+        </ScrollReveal>
         {/* 5. Кейсы */}
-        <div id="use-cases">
-          <UseCases />
-        </div>
+        <ScrollReveal parallaxOffset={50}>
+          <div id="use-cases">
+            <UseCases />
+          </div>
+        </ScrollReveal>
         {/* 6. Блок доверия */}
-        <div id="trust">
-          <TrustSection />
-        </div>
+        <ScrollReveal>
+          <div id="trust">
+            <TrustSection />
+          </div>
+        </ScrollReveal>
         {/* 7. Этапы работы */}
-        <div id="how-it-works">
-          <HowItWorks />
-        </div>
+        <ScrollReveal parallaxOffset={50}>
+          <div id="how-it-works">
+            <HowItWorks />
+          </div>
+        </ScrollReveal>
         {/* 8. О проекте */}
-        <div id="about">
-          <AboutSection />
-        </div>
+        <ScrollReveal>
+          <div id="about">
+            <AboutSection />
+          </div>
+        </ScrollReveal>
         {/* Обновления из Telegram */}
-        <TelegramPosts />
+        <ScrollReveal>
+          <TelegramPosts />
+        </ScrollReveal>
         {/* 9. Тарифы */}
-        <div id="pricing">
-          <PricingSection />
-        </div>
+        <ScrollReveal parallaxOffset={50}>
+          <div id="pricing">
+            <PricingSection />
+          </div>
+        </ScrollReveal>
         {/* 10. FAQ */}
-        <div id="faq">
-          <FAQSection />
-        </div>
-        {/* 11. Финальная форма захвата */}
-        <CTASection />
+        <ScrollReveal>
+          <div id="faq">
+            <FAQSection />
+          </div>
+        </ScrollReveal>
+        {/* 11. Финальная форма */}
+        <ScrollReveal>
+          <CTASection />
+        </ScrollReveal>
       </main>
-      {/* 12. Контакты */}
       <Footer />
     </div>
   );
