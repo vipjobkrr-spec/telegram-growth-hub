@@ -36,6 +36,8 @@ const useTypewriter = (words: string[], typingSpeed = 80, deletingSpeed = 50, pa
 };
 
 export const HeroSection = () => {
+  const typedText = useTypewriter(phrases);
+
   return (
     <section className="relative min-h-[calc(100vh-3.5rem)] sm:min-h-screen flex items-center overflow-hidden">
       {/* Subtle grid bg */}
